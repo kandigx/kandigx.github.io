@@ -7,8 +7,6 @@ header:
     #images: "/images/fort point.png"
 ---
 
-{% include_cached base_path %}
-{% include_cached group-by-array collection=site.posts field="tags" %}
 
 {% for tag in group_names %}
   {% assign posts = group_items[forloop.index0] %}
