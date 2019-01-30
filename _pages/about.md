@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "关于"
 permalink: /about/
 header:
     #image: "/images/zakin.jpg"

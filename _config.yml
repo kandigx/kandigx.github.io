@@ -12,14 +12,14 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "default" , "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "zh-CN"
-title                    : "康笛哥x 的博客"
+title                    : "康明克x的博客"
 title_separator          : "-"
-name                     : "康笛哥x"
-description              : "康笛哥x 的博客."
+name                     : "康明克x"
+description              : "康明克的博客."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -106,10 +106,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "康笛哥x"
+  name             : "康明克x"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "JavaWeb软件工程师"
-  location         : "Beijing"
+  location         : "北京"
   email            :
   links:
     - label: "Email"

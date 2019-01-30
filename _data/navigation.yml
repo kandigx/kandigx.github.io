@@ -1,9 +1,8 @@
 # main links
 main:
-  - title: "About"
+  - title: "关于"
     url: /about/
-  - title: "JavaWeb"
-    url: /javaweb/
+
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
