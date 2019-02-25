@@ -1,28 +1,33 @@
 ---
 title: "使用 GitHub Pages 搭建个人网站"
 permalink: /how-to-build-a-blog-website/
-date: 2019-01-29
+date: 2019-01-30
 tags: [github, 个人网站]
-header:
-    images: "/images/perceptron/percept.jpg"
-excerpt: "java, web, aliyun, domain, github, pages, jekyll, minimal-mistakes"
+
+excerpt: "java, web, aliyun, domain, github, pages, jekyll, minimal-mistakes, website"
 ---
 
 [toc]
 
+## 注册 GitHub
+
+## 新建 username.github.io 项目
+
+## 使用 Jekyll 生成静态网站
+
 
 ## 绑定域名
-### 项目内配置文件
+### 1. CNAME文件
 
 在项目根目录下新建 `CNAME` 文件，在文件中添加域名信息。如个人域名为：`www.kandigx.com`，那么应该添加 `kandigx.com`。不要添加 `www`前缀。
 
-### Github 项目设置
-在 Github 仓库的 setting 设置中，在 `GitHub Pages` 部分，`Custom domain`中填入希望能代替原`kandigx.github.io`的域名。
+### 2. Github 项目设置
+在 Github 仓库的 setting 设置中，在 `GitHub Pages` 部分，`Custom domain`中填入希望能代替原`kandigx.github.io`的域名。比如`www.kandigx.com`。
 
 [//]: # (哈哈我是注释，不会在浏览器中显示。)
 
 
-### 域名解析设置
+### 3. 设置域名解析
 阿里云域名解析设置
 添加记录，如果提示已存在，则删除原 `wwww` 或者 `@` 的主机记录项。
 记录类型：CNAME，主机记录： @  ，记录值： kandigx.github.io
