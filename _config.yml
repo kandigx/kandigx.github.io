@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "air" # "default" , "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "zh-CN"
-title                    : "康明克x的博客"
+title                    : "康君x的博客"
 title_separator          : "-"
-name                     : "康明克"
-description              : "康明克的博客."
+name                     : "康君"
+description              : "康君的博客."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -106,7 +106,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "康明克"
+  name             : "康君"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "JavaWeb软件工程师"
   location         : "北京"
