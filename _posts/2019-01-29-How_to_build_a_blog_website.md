@@ -24,6 +24,8 @@ excerpt: "java, web, aliyun, domain, github, pages, jekyll, minimal-mistakes, we
 ### 2. Github 项目设置
 在 Github 仓库的 setting 设置中，在 `GitHub Pages` 部分，`Custom domain`中填入希望能代替原`kandigx.github.io`的域名。比如`www.kandigx.com`。
 
+![github_pages_settings]({{ site.url }}/images/github_pages_settings.png)
+
 [//]: # (哈哈我是注释，不会在浏览器中显示。)
 
 
