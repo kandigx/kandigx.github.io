@@ -8,12 +8,3 @@ excerpt: "notes, development, ssh, mac, linux"
 ---
 
 # WHY、WHAT、HOW
-
-
-
-
-
-
-
-
-
