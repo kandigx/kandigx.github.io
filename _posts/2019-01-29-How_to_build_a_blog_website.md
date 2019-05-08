@@ -15,7 +15,6 @@ excerpt: "java, web, aliyun, domain, github, pages, jekyll, minimal-mistakes, we
 
 ## 使用 Jekyll 生成静态网站
 
-
 ## 绑定域名
 ### 1. CNAME文件
 
@@ -35,3 +34,11 @@ excerpt: "java, web, aliyun, domain, github, pages, jekyll, minimal-mistakes, we
 记录类型：CNAME，主机记录： @  ，记录值： kandigx.github.io
 记录类型：CNAME，主机记录：www ，记录值： kandigx.github.io
 添加这两条记录即可。`@`类型直接解析主域名，即我的 kandigx.com，`www`类型解析带 `www`前缀的域名，即 www.kandigx.com
+
+### 4. 如何添加图片
+
+修改 `_config.yml` 文件中的 `url` 信息，将其修改为当前网站使用的 github pages 域名，如：`https://kandigx.github.io`。
+
+修改完成后，在需要引用图片的地方，使用 `{{site.url}}` 来指定图片所在的 github pages 域名即可。
+
+添加图片的 MarkDown 语法为： `![Alt text](图片链接)` ，如：`![github_pages_settings]({{ site.url }}/images/github_pages_settings.png)`
