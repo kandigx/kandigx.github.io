@@ -6,6 +6,7 @@ tags: [dynamic proxy, java, design pattern]
 
 excerpt: "java, web, design pattern, dynamic proxy"
 ---
+
 # 动态代理
 
 ## 代理模式
