@@ -57,7 +57,7 @@ public static int[] generateRandomArray(int n, int rangeL, int rangeR) {
 
 **选择**最小元素，放到数组的首位，继续遍历剩下元素，选择最小元素，放到首位。
 
-![selection-sort](assets/selection-sort.png)
+![selection-sort]({{site.url}}/images/selection-sort.png)
 
 两个关键点：
 
@@ -99,7 +99,7 @@ for(int i= 0; i < arr.length; i++){
 
 循环遍历数组中的元素，每个元素和所在位置之前的所有数组元素进行对比，不符合排序规则则进行位置交换，如此遍历后直至和前面元素对比符合排序规则，则停止遍历对比。
 
-![insertion-sort](assets/insertion-sort.png)
+![insertion-sort]({{site.url}}/images/insertion-sort.png)
 
 ### 插入排序与选择排序最大的不同
 
