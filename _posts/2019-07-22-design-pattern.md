@@ -12,7 +12,7 @@ tags: [design, pattern, basic]
 
 # 几种常见的设计模式
 
-GoF 的著作《设计模式-可复用面向对象软件的基础》讲述了 23 个设计模式。这里我只对几种常见的设计模式进行记录和总结。包括 单例、工厂、策略、适配器、代理、装饰者、观察者、模板 等模式。
+GoF 的著作《设计模式-可复用面向对象软件的基础》讲述了 23 个设计模式。这里我只对几种常见的设计模式进行记录和总结（《研磨设计模式》笔记）。包括 单例、工厂、策略、适配器、代理、装饰者、观察者、模板 等模式。
 
 ## 简单工厂
 
@@ -104,7 +104,7 @@ Factory.createApi (1)
 ImplClass=cn.javass.dp.simplefactory.example5.Impl
 ```
 
-### 利用发射机制的简单工厂
+### 利用反射机制实现的简单工厂
 
 ```java
 /**
@@ -174,5 +174,63 @@ public class Client {
 #### 简单工厂和能创建对象实例的模式
 简单工厂的本质是选择实现，所以它可以跟其他任何能够具体的创建对象实例的模式配合使用，比如:单例模式、原型模式、生成器模式等。
 
-## 抽象工厂
+---
+
+## 工厂方法模式
+
+工厂方法模式是指，在不知道具体的实现对象及方法的情况下，先**定义一个用于创建对象接口**，让其子类决定实例化哪一个类来实现。工厂方法模式是一个类的实例化延迟到其子类。
+
+**工厂方法模式的主要功能是让父类在不知道具体实现的情况下，完成自身功能的调用。而具体的实现延迟到子类来实现。**
+
+其结构包含：
+
+- Product：定义工厂方法所创建的对象的接口，也就是实际需要使用的对象的接口。
+- ConcreteProduct：具体的Product接口的实现对象。
+- Creator：创建器，声明工厂方法，工厂方法通常会返回-个Product类型的实例对象，而且多是抽象方法。也可以在Creator里面提供工厂方法的默认实现，让工厂方法返回一个缺省的Product类型的实例对象。
+-  ConcreteCreator：具体的创建器对象，覆盖实现Creator定义的工厂方法，返回具体的Product实例。
+
+```java
+/**
+* 工厂方法所创建的对象的接口
+*/
+public interface Product {
+	//可以定义Product的属性和方法
+}
+
+/**
+* 具体的Product对象
+*/
+public class ConcreteProduct implements Product {
+	//实现Product要求的方法
+}
+
+/**
+* 创建器，声明工厂方法
+*/
+public abstract class Creator {
+  /**
+  * 创建Product的工厂方法
+  * @return Product对象
+  */
+  protected abstract Product factoryMethod() ;
+  
+  /**
+  * 示意方法，实现某些功能的方法
+  */
+  public void someOperation () {
+    //通常在这些方法实现中需要调用工厂方法来获取Product对象
+    Product product = factoryMethod() ;
+  }
+}
+
+/**
+* 具体的创建器实现对象
+*/
+public class ConcreteCreator extends Creator {
+  protected Product factoryMethod() {
+    //重定义工厂方法， 返回一个具体的Product对象
+    return new ConcreteProduct () ;
+  }
+}
+```
 

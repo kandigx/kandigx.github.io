@@ -57,6 +57,8 @@ public static int[] generateRandomArray(int n, int rangeL, int rangeR) {
 
 **选择**最小元素，放到数组的首位，继续遍历剩下元素，选择最小元素，放到首位。
 
+![selection-sort](assets/selection-sort.png)
+
 两个关键点：
 
 1. 数组首个元素的位置的更新变化，要求遍历数组元素
@@ -96,6 +98,14 @@ for(int i= 0; i < arr.length; i++){
 ## 插入排序(Insertion Sort)
 
 循环遍历数组中的元素，每个元素和所在位置之前的所有数组元素进行对比，不符合排序规则则进行位置交换，如此遍历后直至和前面元素对比符合排序规则，则停止遍历对比。
+
+![insertion-sort](assets/insertion-sort-3868433.png)
+
+### 插入排序与选择排序最大的不同
+
+- 插入排序在剩余元素与前序排列好的元素进行比较时，遇到比自己小的元素即停止插入。
+
+- 选择排序在剩余元素中必须全部遍历完成后才能得到最小元素
 
 
 
