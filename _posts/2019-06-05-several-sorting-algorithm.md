@@ -35,6 +35,8 @@ public static int[] generateRandomArray(int n, int rangeL, int rangeR) {
 
 
 
+---
+
 ## 选择排序(Selection Sort)
 
 #### 百科说法
@@ -93,7 +95,7 @@ for(int i= 0; i < arr.length; i++){
 }
 ```
 
-
+---
 
 ## 插入排序(Insertion Sort)
 
@@ -135,9 +137,74 @@ for( int i = 1; i < arr.length(); i++){
 }
 ```
 
+---
+
 ## 归并排序(Merge Sort)
 
-利用归并的思想实现的排序方法，采用经典的分治(divide-and-conquer)策略，将问题分成一些小的问题然后递归求解，然后将这些答案"修补"到一起，即分而治之。效率为 O(nlogn)
+![nlogn-n2-compare]({{site.url}}/images/nlogn-n2-compare.png)
+
+利用归并的思想实现的排序方法，采用经典的分治(divide-and-conquer)策略，将问题分成一些小的问题然后递归求解，然后将这些答案"修补"到一起，即分而治之。效率为 O(nlogn)。
+
+![merge-sort]({{site.url}}/images/merge-sort.png)
+
+将要排序的数据进行归并，将其一直进行二分，最后得到的分数组进行递归排序归并。在递归过程中一定要注意数据元素所在的索引位置，需要根据其索引值进行数据的比较和赋值。
+
+![merge-sort]({{site.url}}/images/merge-sort-index.png)
+
+```java
+private static void sort(int[] arr) {
+  //包含左臂右臂，开区间，即 [left, right]
+  mergeSort(arr, 0, arr.length - 1);
+}
+
+//根据分治后的数据元素索引值进行递归
+private static void mergeSort(int[] arr, int leftIndex, int rightIndex) {
+  //left索引大于等于right索引即表示已分治排序到最后一层，结束递归
+  if (leftIndex >= rightIndex) {
+    return;
+  }
+  //找到中间的索引值，进行分治
+  int midIndex = (leftIndex + rightIndex) / 2;
+  //递归调用，持续分治和归并
+  mergeSort(arr, leftIndex, midIndex);
+  mergeSort(arr, midIndex + 1 ,rightIndex);
+  //对排序好的分治数组进行归并
+  merge(arr, leftIndex, midIndex, rightIndex);
+}
+
+//对分治拥有排序好的两部分的数组进行合并，保持顺序
+//注意维护索引
+private static void merge(int[] arr, int leftIndex, int midIndex, int rightIndex) {
+  //创建一个临时空间，与要排序的索引所在数组容量一致
+  int[] aux = new int[rightIndex - leftIndex + 1];
+  //将索引所在数组元素值赋值到临时数组
+  for (int i = leftIndex; i <= rightIndex; i++) {
+    aux[i - leftIndex] = arr[i];
+  }
+  //临时数组的索引，开始位置索引和中间开始位置的索引
+  int i = leftIndex, j = midIndex + 1;
+  //原数组中的索引，用于赋值
+  for (int k = i; k <= rightIndex; k++) {
+    //left索引大于中间索引，即左边部分已全部归并到原数组
+    if (i > midIndex) {
+      arr[k] = aux[j - leftIndex];
+      j++;
+    } else if (j > rightIndex) { //中间索引大于right索引，即右边部分已全部归并到原数组
+      arr[k] = aux[i - leftIndex];
+      i++;
+    }else if (aux[i - leftIndex] < aux[j - leftIndex]) {//左边值小于右边值，赋值左边到原数组
+      arr[k] = aux[i - leftIndex];
+      i++;
+    }else {//右边值小于左边值，赋值右边到原数组
+      arr[k] = aux[j - leftIndex];
+      j++;
+    }
+  }
+
+}
+```
+
+
 
 
 
