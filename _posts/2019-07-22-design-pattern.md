@@ -234,3 +234,115 @@ public class ConcreteCreator extends Creator {
 }
 ```
 
+---
+
+## 抽象工厂模式
+
+抽象工厂模式，提供了一个提供一系列相关或相互依赖对象的接口，而无需指定它们具体的类。注意，这里的问题是，有一系列的对象，它们之间存在着联系，不能仅仅是直接创建这些对象，要根据它们之间的关系来创建一系列相关的对象。也就是说，**抽象工厂在这里起到了一个约束作用**，**并提供所有子类的一个统一外观**，来让客户端使用。
+
+包括了以下这些结构：
+
+- Abstract Factory：抽象工厂，定义**创建一系列产品对 象**的操作接口。
+- Concrete Factory：具体的工厂，实现抽象工厂定义的方法，具体实现一系列产品对象的创建。
+- Abstract Product：定义一类产品对象的接口。
+- Concrete Product：具体的产品实现对象，通常在具体工厂里面，会选择具体的产品实现对象，来创建符合抽象工厂定义的方法返回的产品类型的对象。
+- Client：客户端，主要使用抽象工厂来获取一系列所需要的产品对象， 然后面向这些产品对象的接口编程，以实现需要的功能。
+
+```java
+/**
+* 抽象工厂的接口，声明创建抽象产品对象的操作
+*/
+public interface AbstractFactory {
+  /**
+  示例方法，创建抽象产品A的对象
+  @return抽象产品A的对象
+  */
+  public AbstractProductA createProductA() ;
+  /**
+  *示例方法，创建抽象产品B的对象
+  * @return抽象产品B的对象
+  */
+  public AbstractProductB createProductB () ;
+  
+}
+
+/**
+* 抽象产品A的接口
+*/
+public interface AbstractProductA {
+	//定义抽象产品A相关的操作
+}
+
+/**
+*抽象产品B的接口
+*/
+public interface AbstractProductB {
+  //定义抽象产品B相关的操作
+}
+
+/**
+* 产品A的具体实现A1
+*/
+public class ProductA1 implements AbstractProductA {
+	//实现产品A1的接口中定义的操作
+}
+
+/**
+* 产品A的具体实现A2
+*/
+public class ProductA2 implements AbstractProductA {
+	//实现产品A2的接口中定义的操作
+}
+
+/**
+* 产品B的具体实现B1
+*/
+public class ProductB1 implements AbstractProductB {
+	//实现产品B1的接口中定义的操作
+}
+
+/**
+* 产品B的具体实现B2
+*/
+public class ProductB2 implements AbstractProductB {
+	//实现产品B2的接口中定义的操作
+}
+
+/**
+* 具体的工厂实现对象，实现创建具体的产品对象的操作
+*/
+public class ConcreteFactory1 implements AbstractFactory {
+  public AbstractProductA createProductA () {
+  	return new ProductA1 () ;
+  }
+  public AbstractProductB createProductB () {
+  	return new ProductB1 () ;
+  }
+}
+
+/**
+* 具体的工厂实现对象，实现创建具体的产品对象的操作
+*/
+public class ConcreteFactory2 implements AbstractFactory {
+  public AbstractProductA createProductA() {
+  	return new ProductA2 () ;
+  }
+  public AbstractProductB createProductB () {
+  	return new ProductB2 () ;
+  }
+}
+
+/**
+* 实现客户端的示例代码
+*/
+public class Client {
+  public static void main (String[] args) {
+    //创建抽象工厂对象
+    AbstractFactory af = new ConcreteFactory1();
+    //通过抽象工厂来获取一系列的对象，如产品A和产品B
+    af.createProductA() ;
+    af.createProductB() ;
+  }
+}
+```
+
